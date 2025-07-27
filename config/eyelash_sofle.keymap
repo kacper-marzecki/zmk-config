@@ -97,8 +97,6 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-    };
-
         gaming {
             bindings = <
 &kp ESC     &mt EXCL N1  &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4  &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
@@ -111,4 +109,6 @@
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
             display-name = "gaming";
         };
+    };
+
 };
