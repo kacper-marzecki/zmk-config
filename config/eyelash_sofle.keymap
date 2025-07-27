@@ -62,7 +62,7 @@
             bindings = <
 &trans  &trans     &trans     &trans            &trans             &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
 &trans  &kp MINUS  &kp GRAVE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL        &trans          &kp LT       &kp PIPE     &kp GT  &kp SQT &trans  &trans
-&trans  &kp PLUS   &kp TILDE  &kp LEFT_BRACE    &kp LEFT_BRACE     &kp UNDER        &trans          &trans       &kp COLON    &trans  &kp DQT &trans  &trans
+&trans  &kp PLUS   &kp TILDE  &kp LEFT_BRACE    &kp LEFT_BRACE     &kp UNDER        &trans          &kp MINUS    &kp COLON    &trans  &kp DQT &trans  &trans
 &trans  &trans     &trans     &kp LEFT_BRACKET  &kp LEFT_BRACKET   &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
 &trans  &trans     &trans     &trans            &trans             &trans           &trans          &mo lsystem  &trans       &trans  &trans  &trans
             >;
