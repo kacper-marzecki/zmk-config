@@ -15,6 +15,7 @@
 #define lsymbols 1
 #define lnav 2
 #define lsystem 3
+#define lgaming 4
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -85,11 +86,11 @@
 
         system {
             bindings = <
-&sys_reset      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4              &mmv MOVE_UP           &kp F1  &kp F2  &kp F3    &kp F4     &kp F5    &kp F6 
-&soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7  &kp F8  &kp F9    &kp F10    &kp F11   &kp F12
-&bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none   &none   &none     &none      &none     &none
-&none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &none   &none   &none     &none      &none     &none 
-&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &none            &none            &none                     &mkp LCLK              &none   &none   &none     &none      &none 
+&sys_reset      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4              &mmv MOVE_UP           &kp F1  &kp F2         &kp F3    &kp F4     &kp F5    &kp F6 
+&soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7  &kp F8         &kp F9    &kp F10    &kp F11   &kp F12
+&bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none   &none          &none     &none      &none     &none
+&none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &none   &none          &none     &none      &none     &none 
+&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &none            &none            &none                     &mkp LCLK              &none   &tog lgaming   &none     &none      &none 
             >;
 
             display-name = "system";
@@ -97,4 +98,17 @@
         };
 
     };
+
+        gaming {
+            bindings = <
+&kp ESC     &mt EXCL N1  &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4  &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
+&kp TAB     &kp Q        &kp W         &kp E              &kp R          &kp T              &kp DOWN_ARROW      &kp Y         &kp U           &kp I             &kp O                    &kp P                     &kp BSLH
+&kt LSHFT   &kp A        &kp S         &kp D              &kp F          &kp G              &kp LEFT_ARROW      &kp H         &kp J           &kp K             &kp L                    &kp SEMI                  &kp ESC
+&kp LCTRL   &kp Z        &kp X         &kp C              &kp V          &kp B              &kp RIGHT_ARROW     &kp N         &kp M           &kp COMMA         &kp DOT                  &kp FSLH                  &kp ENTER
+&kp C_MUTE  &kp LCTRL    &kp LEFT_ALT  &kp LEFT_ALT       &kp SPACE      &sl lsymbols       &kp ENTER           &mo lnav      &kp SPACE       &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            display-name = "gaming";
+        };
 };
