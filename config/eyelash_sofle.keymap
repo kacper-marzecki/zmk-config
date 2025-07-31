@@ -89,11 +89,11 @@
 
         betterbase {
             bindings = <
-&kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
-&kp TAB     &kp Q          &kp W         &kp E              &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U           &kp I             &kp O                  &kp FSLH                    &kp BSLH
-&sk LSHFT   &mt LS(A) A    &kp S         &kp D              &kp F             &kp G              &kp LEFT_ARROW      &kp H         &kp J           &kp K             &kp L                  &kp Q                       &kp ESC
-&kp LCTRL   &mt LC(Z) Z    &mt LC(X) X   &mt LC(C) C        &mt LC(V) V       &kp B              &kp RIGHT_ARROW     &kp N         &kp M           &mt COMMA Z       &mt DOT P              &kp FSLH                    &kp ENTER
-&to lbase   &kp LCTRL      &kp LEFT_GUI  &kp LEFT_ALT       &mt LSHFT SPACE   &sl lsymbols       &kp ENTER           &mo lnav      &kp SPACE       &kp RIGHT_ALT     &kp RIGHT_SHIFT        &kp DELETE
+&kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7         &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
+&kp TAB     &kp Q          &kp W         &kp E              &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U               &kp I             &kp O                  &kp FSLH                    &kp BSLH
+&sk LSHFT   &mt LS(A) A    &kp S         &kp D              &kp F             &kp G              &kp LEFT_ARROW      &kp H         &kp J               &kp K             &kp L                  &kp Q                       &kp ESC
+&kp LCTRL   &mt LC(Z) Z    &mt LC(X) X   &mt LC(C) C        &mt LC(V) V       &kp B              &kp RIGHT_ARROW     &kp N         &kp M               &mt COMMA Z       &mt DOT P              &kp FSLH                    &kp ENTER
+&to lbase   &kp LCTRL      &kp LEFT_GUI  &kp LEFT_ALT       &mt LSHFT SPACE   &sl lsymbols       &kp ENTER           &mo lnav      &mt LEFT_ALT SPACE  &kp RIGHT_ALT     &kp RIGHT_SHIFT        &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
