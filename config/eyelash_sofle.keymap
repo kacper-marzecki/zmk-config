@@ -12,12 +12,12 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define lbase 0
-#define lsymbols 1
-#define lnav 2
-#define lsystem 3
-#define lgaming 4
-#define lcanary 5
-#define lbetterbase 6
+#define lgaming 1
+#define lcanary 2
+#define lbetterbase 3
+#define lsymbols 4
+#define lnav 5
+#define lsystem 6
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -61,44 +61,6 @@
             display-name = "base";
         };
 
-        symbols {
-            bindings = <
-&trans  &trans     &trans     &trans            &trans             &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
-&trans  &kp MINUS  &kp GRAVE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL        &trans          &kp LT       &kp PIPE     &kp GT  &kp SQT &trans  &trans
-&trans  &kp PLUS   &kp TILDE  &kp LEFT_BRACE    &kp LEFT_BRACE     &kp UNDER        &trans          &kp MINUS    &kp COLON    &trans  &kp DQT &trans  &trans
-&trans  &trans     &trans     &kp LEFT_BRACKET  &kp LEFT_BRACKET   &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
-&trans  &trans     &trans     &trans            &trans             &trans           &trans          &mo lsystem  &trans       &trans  &trans  &trans
-            >;
-            sensor-bindings = <&scroll_encoder>;
-            display-name = "symbols";
-        };
-
-        nav {
-            bindings = <
-&none       &none            &none           &none            &none            &none                   &mmv MOVE_UP         &none            &none            &none       &none      &none          &none
-&none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &kp LC(U)        &kp END          &kp UP      &kp HOME   &kp PAGE_UP    &none
-&none       &none            &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                   &mmv MOVE_LEFT       &kp LC(D)        &kp LEFT         &kp DOWN    &kp RIGHT  &kp PAGE_DOWN  &none
-&none       &none            &mkp LCLK       &mkp MCLK        &mkp RCLK        &none                   &mmv MOVE_LEFT       &kp B            &kp W            &none       &none      &none          &none
-&kp C_MUTE  &none            &none           &none            &none            &mo lsystem             &mkp LCLK            &none            &none            &none       &none      &none 
-            >;
-
-            display-name = "nav";
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        system {
-            bindings = <
-&sys_reset      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4              &mmv MOVE_UP           &kp F1  &kp F2         &kp F3    &kp F4     &kp F5    &kp F6 
-&soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7  &kp F8         &kp F9    &kp F10    &kp F11   &kp F12
-&bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none   &none          &none     &none      &none     &none
-&none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &none   &none          &none     &none      &none     &none 
-&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &to lbetterbase  &to lcanary      &none                     &mkp LCLK              &none   &tog lgaming   &none     &none      &none 
-            >;
-
-            display-name = "system";
-            sensor-bindings = <&scroll_encoder>;
-        };
-
         gaming {
             bindings = <
 &kp ESC     &mt EXCL N1  &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4  &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
@@ -127,15 +89,54 @@
 
         betterbase {
             bindings = <
-&kp ESC     &mt EXCL N1  &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
-&kp TAB     &kp Q        &kp W         &kp E              &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U           &kp COMMA         &kp DOT                  &kp FSLH                     &kp BSLH
-&sk LSHFT   &kp A        &kp S         &kp D              &kp F             &kp G              &kp LEFT_ARROW      &kp H         &kp J           &kp K             &kp L                    &kp SEMI                  &kp ESC
-&kp LCTRL   &kp Z        &kp X         &kp C              &kp V             &kp B              &kp RIGHT_ARROW     &kp N         &kp M           &kp I             &kp O                    &kp P                  &kp ENTER
-&kp C_MUTE  &kp LCTRL    &kp LEFT_GUI  &kp LEFT_ALT       &mt LSHFT SPACE   &sl lsymbols       &kp ENTER           &mo lnav      &kp SPACE       &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
+&kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
+&kp TAB     &kp Q          &kp W         &kp E              &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U           &kp COMMA         &kp DOT                  &kp FSLH                     &kp BSLH
+&sk LSHFT   &mt LS(A) A    &mt LC(S) S   &kp D              &mt LC(F) F       &kp G              &kp LEFT_ARROW      &kp H         &kp J           &kp K             &kp L                    &kp SEMI                  &kp ESC
+&kp LCTRL   &mt LC(Z) Z    &mt LC(X) X   &mt LC(C) C        &mt LC(V) V       &kp B              &kp RIGHT_ARROW     &kp N         &kp M           &kp I             &kp O                    &kp P                  &kp ENTER
+&to lbase   &kp LCTRL      &kp LEFT_GUI  &kp LEFT_ALT       &mt LSHFT SPACE   &sl lsymbols       &kp ENTER           &mo lnav      &kp SPACE       &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
             display-name = "BBase";
+        };
+
+        
+        symbols {
+            bindings = <
+&trans  &trans     &trans     &trans            &trans             &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
+&trans  &kp MINUS  &kp GRAVE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL        &trans          &kp LT       &kp PIPE     &kp GT  &kp SQT &trans  &trans
+&trans  &kp PLUS   &kp TILDE  &kp LEFT_BRACE    &kp LEFT_BRACE     &kp UNDER        &trans          &kp MINUS    &kp COLON    &trans  &kp DQT &trans  &trans
+&trans  &trans     &trans     &kp LEFT_BRACKET  &kp LEFT_BRACKET   &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
+&trans  &trans     &trans     &trans            &trans             &trans           &trans          &mo lsystem  &trans       &trans  &trans  &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+            display-name = "symbols";
+        };
+
+        nav {
+            bindings = <
+&none       &none            &none           &none            &none            &none                   &mmv MOVE_UP         &none            &none            &none       &none      &none          &none
+&none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &kp LC(U)        &kp END          &kp UP      &kp HOME   &none          &none
+&none       &none            &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                   &mmv MOVE_LEFT       &kp LC(D)        &kp LEFT         &kp DOWN    &kp RIGHT  &kp PAGE_UP    &none
+&none       &none            &mkp LCLK       &mkp MCLK        &mkp RCLK        &none                   &mmv MOVE_LEFT       &kp B            &kp W            &none       &none      &kp PAGE_DOWN  &none
+&kp C_MUTE  &none            &none           &none            &none            &mo lsystem             &mkp LCLK            &none            &none            &none       &none      &none 
+            >;
+
+            display-name = "nav";
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        system {
+            bindings = <
+&sys_reset      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4              &mmv MOVE_UP           &kp F1  &kp F2         &kp F3    &kp F4     &kp F5    &kp F6 
+&soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7  &kp F8         &kp F9    &kp F10    &kp F11   &kp F12
+&bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none   &none          &none     &none      &none     &none
+&none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &none   &none          &none     &none      &none     &none 
+&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &to lbetterbase  &to lcanary      &none                     &mkp LCLK              &none   &tog lgaming   &none     &none      &none 
+            >;
+
+            display-name = "system";
+            sensor-bindings = <&scroll_encoder>;
         };
     };
 
