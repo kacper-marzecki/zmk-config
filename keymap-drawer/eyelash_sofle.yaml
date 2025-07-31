@@ -1,18 +1,18 @@
 layout: {zmk_keyboard: eyelash_sofle}
 layers:
-  LAYER0:
+  base:
   - $$mdi:keyboard-esc$$
-  - {t: '1', s: '!'}
-  - {t: '2', s: '@'}
-  - {t: '3', s: '#'}
-  - {t: '4', s: $}
-  - {t: '5', s: '%'}
+  - {t: '1', h: '!', s: '!'}
+  - {t: '2', h: '@', s: '@'}
+  - {t: '3', h: '#'}
+  - {t: '4', h: $, s: $}
+  - {t: '5', h: '%', s: '%'}
   - $$mdi:arrow-up-bold$$
-  - {t: '6', s: ^}
-  - {t: '7', s: '&'}
-  - {t: '8', s: '*'}
-  - {t: '9', s: (}
-  - {t: '0', s: )}
+  - {t: '6', h: ^, s: ^}
+  - {t: '7', h: '&', s: '&'}
+  - {t: '8', h: '*', s: '*'}
+  - {t: '9', h: (, s: (}
+  - {t: '0', h: ), s: )}
   - {t: '$$mdi:backspace$$', type: backspace}
   - $$mdi:keyboard-tab$$
   - Q
@@ -27,7 +27,7 @@ layers:
   - O
   - P
   - {t: \, s: '|'}
-  - $$mdi:apple-keyboard-caps$$
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
   - A
   - S
   - D
@@ -39,8 +39,8 @@ layers:
   - K
   - L
   - {t: ;, s: ':'}
-  - {t: '''', s: '"'}
-  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:keyboard-esc$$
+  - $$mdi:apple-keyboard-control$$
   - Z
   - X
   - C
@@ -57,206 +57,401 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
-  - layer1
-  - $$mdi:keyboard-space$$
+  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: symbols, h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:keyboard-return$$', type: enter}
+  - nav
   - $$mdi:keyboard-space$$
-  - {t: '$$mdi:keyboard-return$$', type: enter}
-  - '2'
+  - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:backspace-reverse-outline$$
-  layer1:
-  - {t: '`', s: '~'}
-  - F1
-  - F2
-  - F3
-  - F4
-  - F5
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
-  - F6
-  - F7
-  - F8
-  - F9
-  - F10
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '`', s: '~'}
-  - $$mdi:mouse-left-click-outline$$
-  - $$mdi:mouse-scroll-wheel$$
-  - $$mdi:mouse-right-click-outline$$
-  - '&mkp MB4'
-  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
-  - PG UP
-  - END
+  gaming:
+  - $$mdi:keyboard-esc$$
+  - {t: '1', h: '!', s: '!'}
+  - {t: '2', h: '@', s: '@'}
+  - {t: '3', h: '#'}
+  - {t: '4', h: $, s: $}
+  - {t: '5', h: '%', s: '%'}
   - $$mdi:arrow-up-bold$$
-  - HOME
-  - {t: '-', s: _}
-  - {t: '=', s: +}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - '~'
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - '&mkp MB5'
-  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - PG DN
-  - $$mdi:arrow-left-bold$$
+  - {t: '6', h: ^, s: ^}
+  - {t: '7', h: '&', s: '&'}
+  - {t: '8', h: '*', s: '*'}
+  - {t: '9', h: (, s: (}
+  - {t: '0', h: ), s: )}
+  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:keyboard-tab$$
+  - Q
+  - W
+  - E
+  - R
+  - T
   - $$mdi:arrow-down-bold$$
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: \, s: '|'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - A
+  - S
+  - D
+  - F
+  - G
+  - $$mdi:arrow-left-bold$$
+  - H
+  - J
+  - K
+  - L
+  - {t: ;, s: ':'}
+  - $$mdi:keyboard-esc$$
+  - $$mdi:apple-keyboard-control$$
+  - Z
+  - X
+  - C
+  - V
+  - B
   - $$mdi:arrow-right-bold$$
+  - N
+  - M
+  - {t: ',', s: <}
+  - {t: ., s: '>'}
+  - {t: /, s: '?'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - $$mdi:volume-off$$
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:keyboard-space$$
+  - {t: symbols, h: '$$mdi:gesture-tap-hold$$'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: gaming, h: toggle}
+  - $$mdi:keyboard-space$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:backspace-reverse-outline$$
+  canary:
+  - $$mdi:keyboard-esc$$
+  - {t: '1', h: '!', s: '!'}
+  - {t: '2', h: '@', s: '@'}
+  - {t: '3', h: '#'}
+  - {t: '4', h: $, s: $}
+  - {t: '5', h: '%', s: '%'}
+  - $$mdi:arrow-up-bold$$
+  - {t: '6', h: ^, s: ^}
+  - {t: '7', h: '&', s: '&'}
+  - {t: '8', h: '*', s: '*'}
+  - {t: '9', h: (, s: (}
+  - {t: '0', h: ), s: )}
+  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:keyboard-tab$$
+  - W
+  - L
+  - Y
+  - P
+  - B
+  - $$mdi:arrow-down-bold$$
+  - Z
+  - F
+  - O
+  - U
+  - {t: '''', s: '"'}
+  - {t: \, s: '|'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
+  - C
+  - R
+  - S
+  - T
+  - G
+  - $$mdi:arrow-left-bold$$
+  - M
+  - N
+  - E
+  - I
+  - A
+  - $$mdi:keyboard-esc$$
+  - $$mdi:apple-keyboard-control$$
+  - Q
+  - J
+  - V
+  - D
+  - K
+  - $$mdi:arrow-right-bold$$
+  - X
+  - H
+  - {t: ',', s: <}
+  - {t: ., s: '>'}
+  - {t: /, s: '?'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - $$mdi:volume-off$$
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-option$$
+  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: symbols, h: '$$mdi:gesture-tap-hold$$'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - nav
+  - $$mdi:keyboard-space$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:backspace-reverse-outline$$
+  BBase:
+  - $$mdi:keyboard-esc$$
+  - {t: '1', h: '!', s: '!'}
+  - {t: '2', h: '@', s: '@'}
+  - {t: '3', h: '#'}
+  - {t: '4', h: $, s: $}
+  - {t: '5', h: '%', s: '%'}
+  - $$mdi:arrow-up-bold$$
+  - {t: '6', h: ^, s: ^}
+  - {t: '7', h: '&', s: '&'}
+  - {t: '8', h: '*', s: '*'}
+  - {t: '9', h: (, s: (}
+  - {t: '0', h: ), s: )}
+  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:keyboard-tab$$
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - $$mdi:arrow-down-bold$$
+  - Y
+  - U
+  - I
+  - O
+  - {t: /, s: '?'}
+  - {t: \, s: '|'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
+  - {t: A, h: Sft+A}
+  - {t: S, h: Ctl+S}
+  - D
+  - {t: F, h: Ctl+F}
+  - G
+  - $$mdi:arrow-left-bold$$
+  - H
+  - J
+  - K
+  - L
+  - Q
+  - $$mdi:keyboard-esc$$
+  - $$mdi:apple-keyboard-control$$
+  - {t: Z, h: Ctl+Z}
+  - {t: X, h: Ctl+X}
+  - {t: C, h: Ctl+C}
+  - {t: V, h: Ctl+V}
+  - B
+  - $$mdi:arrow-right-bold$$
+  - N
+  - M
+  - {t: Z, h: ','}
+  - {t: P, h: .}
+  - {t: /, s: '?'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: base, h: toggle}
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-option$$
+  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: symbols, h: '$$mdi:gesture-tap-hold$$'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - nav
+  - $$mdi:keyboard-space$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:backspace-reverse-outline$$
+  symbols:
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '-', s: _}
+  - {t: '`', s: '~'}
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
+  - {t: '=', s: +}
   - {t: '$$mdi:transfer$$', type: trans}
-  - RGB OFF
-  - RGB ON
-  - RGB EFF
-  - RGB EFR
-  - RGB SPI
-  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - RGB BRI
-  - RGB BRD
-  - Ins
-  - F11
-  - F12
+  - <
+  - '|'
+  - '>'
+  - {t: '''', s: '"'}
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:volume-off$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - +
+  - '~'
+  - '{'
+  - '{'
+  - _
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '-', s: _}
+  - ':'
+  - {t: '$$mdi:transfer$$', type: trans}
+  - '"'
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '[', s: '{'}
+  - {t: '[', s: '{'}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
+  - system
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  nav:
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - Ctl+U
+  - END
+  - $$mdi:arrow-up-bold$$
+  - HOME
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - Ctl+D
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-right-bold$$
+  - PgUp
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  '2':
-  - '~'
+  - $$mdi:mouse-scroll-wheel$$
+  - $$mdi:mouse-right-click-outline$$
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - B
+  - W
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - PgDn
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - $$mdi:volume-off$$
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - system
+  - $$mdi:mouse-left-click-outline$$
+  - {t: '$$mdi:minus-circle-outline$$', type: held}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  system:
+  - {t: '$$mdi:backup-restore$$', type: bootloader}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
   - {h: '3', s: '$$mdi:bluetooth-connect$$'}
   - {h: '4', s: '$$mdi:bluetooth-connect$$'}
   - {h: '5', s: '$$mdi:bluetooth-connect$$'}
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
   - F6
+  - '&soft_off'
+  - OUT BLE
+  - $$mdi:bluetooth-off$$
+  - BT CLR ALL
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - F7
   - F8
   - F9
   - F10
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:bluetooth-off$$
-  - BT CLR ALL
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
   - F11
   - F12
-  - _
-  - +
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:progress-download$$
   - OUT USB
-  - OUT BLE
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - '{'
-  - '}'
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:backup-restore$$', type: bootloader}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:progress-download$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - RGB OFF
+  - RGB ON
+  - RGB EFF
+  - RGB EFR
+  - RGB SPI
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:backup-restore$$', type: bootloader}
-  - '&soft_off'
-  - $$mdi:progress-download$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - RGB BRI
+  - RGB BRD
+  - {t: BBase, h: toggle}
+  - {t: canary, h: toggle}
+  - {t: '$$mdi:minus-circle-outline$$', type: held}
   - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  '3':
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:minus-circle-outline$$', type: held}
+  - {t: gaming, h: toggle}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
