@@ -16,10 +16,11 @@
 #define lbase 1
 #define lexp 2
 #define lexp1 3
-#define lgaming 4
-#define lsymbols 5
-#define lnav 6
-#define lsystem 7
+#define lcolemac 4
+#define lgaming 5
+#define lsymbols 6
+#define lnav 7
+#define lsystem 8
 
 #define LN1 0 
 #define LN2 1 
@@ -286,6 +287,20 @@
             display-name = "exp1";
         };
 
+
+        colemac {
+            bindings = <
+&kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
+&kp TAB     &kp Q          &kp W         &kp F              &kp P             &kp B              &kp DOWN_ARROW      &kp J         &kp L           &kp U             &kp Y                   &kp SEMI                     &kp BSLH
+&sk LSHFT   &hml LSHIFT A  &hml LALT R   &hml LCTRL S       &hml LGUI T       &kp G              &kp LEFT_ARROW      &kp M       &hmr RGUI N     &hmr RCTRL E      &hmr RALT I              &hmr RSHIFT O              &kp SQT
+&kp LCTRL   &kp Z          &kp X         &kp C              &kp D             &kp V              &kp RIGHT_ARROW     &kp K         &kp H           &kp  COMMA          &kp DOT                 &kp FSLH                  &kp ENTER
+&to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB            &kp ENTER           &mo lsymbols  &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            display-name = "colemac";
+        };
+
           gaming {
             bindings = <
 &kp ESC     &mt EXCL N1  &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4  &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
@@ -329,11 +344,11 @@
 
         system {
             bindings = <
-&sys_reset      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4              &mmv MOVE_UP           &kp F1  &kp F2         &kp F3    &kp F4     &kp F5    &kp F6 
-&soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7  &kp F8         &kp F9    &kp F10    &kp F11   &kp F12
-&bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none   &none          &none     &none      &none     &none
-&none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &none   &none          &none     &none      &none     &none 
-&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &trans           &trans           &trans                    &mkp LCLK              &none   &none          &to lexp  &to lexp1  &tog lgaming  
+&sys_reset      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4              &mmv MOVE_UP           &kp F1         &kp F2         &kp F3    &kp F4     &kp F5    &kp F6 
+&soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7         &kp F8         &kp F9    &kp F10    &kp F11   &kp F12
+&bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none          &none          &none     &none      &none     &none
+&none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &to lcolemac   &none          &none     &none      &none     &none 
+&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &trans           &trans           &trans                    &mkp LCLK              &none          &none          &to lexp  &to lexp1  &tog lgaming  
             >;
 
             display-name = "system";
