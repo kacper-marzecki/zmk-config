@@ -17,11 +17,9 @@
 #define lexp 2
 #define lexp1 3
 #define lgaming 4
-#define lcanary 5
-#define lbetterbase 6
-#define lsymbols 7
-#define lnav 8
-#define lsystem 9
+#define lsymbols 5
+#define lnav 6
+#define lsystem 7
 
 #define LN1 0 
 #define LN2 1 
@@ -278,10 +276,10 @@
         exp1 {
             bindings = <
 &kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
-&kp TAB     &kp Q          &kp W         &kp E              &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U           &kp I             &kp O                    &kp P                     &kp BSLH
-&sk LSHFT   &hml LSHIFT A  &hml LALT S   &hml LCTRL         &hml LGUI F       &kp G              &kp LEFT_ARROW      &kp H         &hmr RGUI J     &hmr RCTRL K      &hmr RALT L              &hmr RSHIFT SEMI          &kp ESC
-&kp LCTRL   &kp Z          &kp X         &kp C              &kp V             &kp B              &kp RIGHT_ARROW     &kp N         &kp M           &kp COMMA         &kp DOT                  &kp FSLH                  &kp ENTER
-&to lbase  &kp LCTRL       &kp LEFT_GUI  &kp LEFT_ALT       &mt LSHFT SPACE   &mo lnav           &kp ENTER           &mo lnav      &kp SPACE       &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
+&kp TAB     &kp V          &kp M         &kp L              &kp C             &kp P              &kp DOWN_ARROW      &kp X         &kp F           &kp O             &kp U                    &kp J                     &kp BSLH
+&sk LSHFT   &hml LSHIFT S  &hml LALT T   &hml LCTRL R       &hml LGUI D       &kp Y              &kp LEFT_ARROW      &kp DOT       &hmr RGUI N     &hmr RCTRL A      &hmr RALT E              &hmr RSHIFT I              &kp ESC
+&kp LCTRL   &kp Z          &kp K         &kp Q              &kp G             &kp W              &kp RIGHT_ARROW     &kp B         &kp H           &kp  SQT          &kp SEMI                 &kp COMMA                  &kp ENTER
+&to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB            &kp ENTER           &mo lsymbols  &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -301,42 +299,16 @@
             display-name = "gaming";
         };
 
-        canary {
-            bindings = <
-&kp ESC     &mt EXCL N1  &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
-&kp TAB     &kp W        &kp L         &kp Y              &kp P             &kp B              &kp DOWN_ARROW      &kp X         &kp F           &kp O             &kp U                    &kp SQT                   &kp BSLH
-&sk LSHFT   &mt LEFT_ALT C  &mt LEFT_SHIFT R  &mt LEFT_CONTROL S  &mt LEFT_GUI T   &kp G              &kp LEFT_ARROW      &mt RIGHT_GUI M  &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I          &kp A                     &kp ESC
-&kp LCTRL   &kp Q        &kp J         &kp V              &kp D             &kp K              &kp RIGHT_ARROW     &kp Z         &kp H           &kp COMMA         &kp DOT                  &kp FSLH                  &kp ENTER
-&kp C_MUTE  &kp LCTRL    &kp LEFT_GUI  &kp LEFT_ALT       &mt LSHFT SPACE   &sl lsymbols       &kp ENTER           &mo lnav      &kp SPACE       &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
-            >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "canary";
-        };
-
-        betterbase {
-            bindings = <
-&kp ESC     &mt EXCL N1    &mt AT N2          &mt HASH NUMBER_3   &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7         &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
-&kp TAB     &kp Q          &kp W              &kp E               &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U               &kp I             &kp O                  &kp FSLH                    &kp BSLH
-// --- Homerow mods added below ---
-&sk LSHFT   &mt LEFT_ALT A  &mt LEFT_SHIFT S  &mt LEFT_CONTROL D  &kp F    &mt LEFT_GUI G              &kp LEFT_ARROW      &mt RIGHT_GUI H  &mt RIGHT_CONTROL J  &mt RIGHT_SHIFT K  &mt RIGHT_ALT L          &kp Q                       &kp ESC
-// --- End of homerow mods ---
-&kp LCTRL   &mt LC(Z) Z    &mt LC(X) X        &mt LC(C) C         &mt LC(V) V       &kp B              &kp RIGHT_ARROW     &kp N         &kp M               &mt COMMA Z       &mt DOT P              &kp FSLH                    &kp ENTER
-&to lbase   &kp LCTRL      &kp LEFT_GUI       &kp LEFT_ALT        &mt LSHFT SPACE   &sl lsymbols       &kp ENTER           &mo lnav      &mt LEFT_ALT SPACE  &kp RIGHT_ALT     &kp RIGHT_SHIFT        &kp DELETE
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "BBase";
-        };
 
         
         symbols {
             bindings = <
-&trans  &trans     &trans     &trans            &trans             &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
-&trans  &kp MINUS  &kp GRAVE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL        &trans          &kp LT       &kp PIPE     &kp GT  &kp SQT &trans  &trans
-&trans  &kp PLUS   &kp TILDE  &kp LEFT_BRACE    &kp LEFT_BRACE     &kp UNDER        &trans          &kp MINUS    &kp COLON    &trans  &kp DQT &trans  &trans
-&trans  &trans     &trans     &kp LEFT_BRACKET  &kp LEFT_BRACKET   &trans           &trans          &trans       &trans       &trans  &trans  &trans  &trans
-&trans  &trans     &trans     &trans            &trans             &trans           &trans          &mo lsystem  &mo lsystem  &trans  &trans  &trans
+&trans  &trans     &trans     &trans            &trans             &trans           &trans          &trans       &trans       &trans    &trans  &trans  &trans
+&trans  &kp MINUS  &kp GRAVE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL        &trans          &kp LT       &kp PIPE     &kp GT    &kp SQT &trans  &trans
+&trans  &kp PLUS   &kp TILDE  &kp LEFT_BRACE    &kp LEFT_BRACE     &kp UNDER        &trans          &kp MINUS    &kp COLON    &kp FSLH  &kp DQT &trans  &trans
+&trans  &trans     &trans     &kp LEFT_BRACKET  &kp LEFT_BRACKET   &trans           &trans          &trans       &trans       &trans    &trans  &trans  &trans
+&trans  &trans     &trans     &trans            &trans             &trans           &trans          &mo lsystem  &mo lsystem  &trans    &trans  &trans
             >;
             sensor-bindings = <&scroll_encoder>;
             display-name = "symbols";
@@ -361,7 +333,7 @@
 &soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7  &kp F8         &kp F9    &kp F10    &kp F11   &kp F12
 &bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none   &none          &none     &none      &none     &none
 &none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &none   &none          &none     &none      &none     &none 
-&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &to lbetterbase  &to lcanary      &none                     &mkp LCLK              &none   &none          &to lexp  &to lexp1  &tog lgaming  
+&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &trans           &trans           &trans                    &mkp LCLK              &none   &none          &to lexp  &to lexp1  &tog lgaming  
             >;
 
             display-name = "system";
