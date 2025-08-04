@@ -1,134 +1,76 @@
 (defcfg
   process-unmapped-keys yes
+  ;; On Windows, you may want to use compose-key sequences for non-US layouts.
+  ;; For example, for German:
+  ;; compose-key-de-de yes
 )
 
-;; laout definition
-(defsrc
-  esc        1         2           3              4             5
-  tab        q         w           e              r             t
-  lshift     a         s           d              f             g
-  lctrl      z         x           c              v             b
-  mute       f1      lmeta       lalt           spc           f2
+;; Define layer-switching aliases for clarity
+(defalias
+  lqwerty (layer-switch qwerty)
+  lmain (layer-switch main)
+  lsym (layer-while-held symbols) ;; Momentary layer for symbols
+  lnav (layer-while-held nav)     ;; Momentary layer for navigation
+)
 
+
+;; Define our source layout, the physical keys on the keyboard.
+(defsrc
+  ;; left half
+  esc    1    2    3    4    5
+  tab    q    w    e    r    t
+  lshift a    s    d    f    g
+  lctrl  z    x    c    v    b
+  mute   f1   lmet lalt spc  f2
+
+  ;; joystick keys
   f3
   f4
   f5
   f6
   f7
 
-  6         7           8             9                    0                     bspc
-  y         u           i             o                    p                     bksl
-  h         j           k             l                    ;                     rshift
-  n         m           ,             .                    /                     enter
-  f8        f9          ralt          rmeta                del
+  ;; right half
+  6      7    8    9    0    bspc
+  y      u    i    o    p    bksl
+  h      j    k    l    ;    rshift
+  n      m    ,    .    /    enter
+  f8     f9   ralt rmet del
 )
-;; homerow mods 
-(deftemplate charmod (char mod)
+
+;; --- Homerow Mods ---
+
+;; Template for homerow mods. Tapping the key sends the character, holding it sends the modifier.
+;; (tap-hold-press <tap-timeout> <hold-timeout> <tap-key> <hold-key>)
+(deftemplate
+  homerow (char mod)
   (switch 
     ((key-timing 3 less-than 250)) $char break
     () (tap-hold-release-timeout 200 500 $char $mod $char) break
-  )
+    )
 )
 
+;; Aliases for each homerow key, applying the template.
+(defalias
+  ;; Left hand
+  a-alt (t! homerow a lalt)
+  f-sft (t! homerow f lsft)
+  d-ctl (t! homerow d lctl)
+  g-gui (t! homerow g lmet)
 
-(defalias 
-  y (t! charmod y lmet)
-  d (t! charmod d lsft)
-  r (t! charmod r lctl)
-  t (t! charmod t lalt)
-  i (t! charmod i rmet)
-  f (t! charmod f ralt)
-  ;; add corresponding aliases for qwerty homerow mods 
-)
+  ;; Right hand
+  j-alt (t! homerow j ralt)
+  k-sft (t! homerow k rsft)
+  l-ctl (t! homerow l rctl)
+  sc-gui (t! homerow ; rmet) ;; Semicolon with right gui
 
+  y (t! homerow y lmet)
+  d (t! homerow d lsft)
+  r (t! homerow r lctl)
+  t (t! homerow t lalt)
+  i (t! homerow i rmet)
+  f (t! homerow f ralt)
 
-(deflayer main
-  esc        1         2           3              4             5
-  tab        v m l c p
-  lshift     s @t @r @d @y
-  lctrl      x k j g w
-  mute       lmeta     lmeta       esc            spc           tab 
-
-  f2
-  f3
-  f4
-  f5
-  f6
-
-  6         7           8             9                    0                     bspc
-  b @star u o q                     bksl
-  @f n e a @i                     rshift
-  z h , . /                     enter
-  enter        bspc          ralt          rmeta                lrld
-)
-
-
-(deflayer qwerty
-  esc        1         2           3              4             5
-  tab        q         w           e              r             t
-  lshift     a         s           d              f             g
-  lctrl      z         x           c              v             b
-  mute       lctrl      lmeta       lalt           spc           esc
-
-  f2
-  f3
-  f4
-  f5
-  f6
-
-  6         7           8             9                    0                     bspc
-  y         u           i             o                    p                     bksl
-  h         j           k             l                    ;                     rshift
-  n         m           ,             .                    /                     enter
-  f7        f8          ralt          rmeta                lrld
-)
-
-
-(deflayer symbols
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-
-  _
-  _
-  _
-  _
-  _
-
-  _         _           _             _                    _                     _
-  _         _           _             _                    _                     _
-  _         _           _             _                    _                     _
-  _         _           _             _                    _                     _
-  _         _           _             _                    _
-)
-
-(deflayer nav
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-  _          _         _           _              _             _
-
-  _
-  _
-  _
-  _
-  _
-
-  _         _           _             _                    _                     _
-  _         _           _             _                    _                     _
-  _         _           _             _                    _                     _
-  _         _           _             _                    _                     _
-  _         _           _             _                    _
-)
-
-(defalias 
-  lqwerty (layer-switch qwerty)
-  lmain (layer-switch main)
-  lsymbols (layer-while-held symbols)
-  lnav (layer-while-held symbols)
 
   ;; --- 1. Aliases for multi-key text expansions ---
   ;; These will be called by our magic key.
@@ -139,9 +81,6 @@
   the     (macro t h e)
   include (macro i n c l u d e)
   dotslash(macro . /)
-
-  ;; --- 2. The magic key (★) definition using switch and key-history ---
-  ;; This alias is mapped to a physical key (f1 in this example).
   star (switch
     ;; For each condition, we check the last key pressed (history position 1).
     ;; If it matches, we send a backspace to delete the original character,
@@ -178,10 +117,100 @@
 )
 
 
+;; --- Layer Definitions ---
 
-(defvar
-  tap-timeout   200
-  hold-timeout  200
-  tt $tap-timeout
-  ht $hold-timeout
+;; QWERTY layer is our new base, with homerow mods.
+(deflayer qwerty
+  ;; left hand
+  esc    1    2    3    4    5
+  tab    q    w    e    r    t
+  lshift @a-alt    s   @d-ctl @f-sft @g-gui
+  lctrl  z    x    c    v    b
+  @lmain lctl lmet @lsym spc  @lnav   
+
+  ;; Unused joystick keys - can be mapped to anything
+  XX
+  XX
+  XX
+  XX
+  XX
+
+  ;; right hand
+  6      7    8    9    0    bspc
+  y      u    i    o    p    bksl
+  h      @j-alt @k-sft @l-ctl @sc-gui rshift
+  n      m    ,    .    /    enter
+  del    bspc ralt rmet lalt
+)
+
+;; Your experimental 'main' layer, accessible from the qwerty layer.
+(deflayer main
+  esc        1         2           3              4             5
+  tab        v         m           l              c             p
+  lshift     s         @t          @r             @d            @y
+  lctrl      x         k           j              g             w
+  mute       lmeta     lmeta       esc            spc           tab
+
+  f2
+  f3
+  f4
+  f5
+  ff        n           e             a            @i            rshift
+  z         h           ,             .            /             enter
+  @lqwerty  bspc        ralt          rmeta        lrld
+)
+
+
+;; Symbols layer, based on your ZMK config
+(deflayer symbols
+  ;; left hand
+  _      _      _      _      _      _
+  _      -      grv    [      ]      =
+  _      +      _      lbrc   rbrc   _
+  _      _      _      _      _      _
+  _      _      _      _      _      _
+
+  ;; Unused joystick keys
+  _
+  _
+  _
+  _
+  _
+
+  ;; right hand
+  _      _      _      _      _      _
+  _      S-,      S-⧵    S-.      '      _
+  _      -      S-;      _      apo    _
+  _      _      _      _      _      _
+  _      _      _      _      _      
+)
+(defalias 
+  
+  ms↑ (movemouse-up 1 1)
+  ms← (movemouse-left 1 1)
+  ms↓ (movemouse-down 1 1)
+  ms→ (movemouse-right 1 1)
+)
+;; Navigation and mouse layer, based on your ZMK config
+(deflayer nav
+  ;; left hand
+  _      _      _      _      _      _
+  _      _      _      @ms↑     _      _
+  _      _      @ms←   @ms↓   @ms→  _
+  _      _      🖰1   🖰3   🖰2   _
+  _      _      _      _      bspc   _
+
+  ;; Unused joystick keys
+  up
+  down
+  left
+  right
+  🖰1
+
+  ;; right hand
+  _      _      _      _      _      _
+  _      home   up     end    pgup   _
+  _      left   down   right  pgdn   _
+  _      _      _      _      _      _
+  _      _      _      _      _      
 )
