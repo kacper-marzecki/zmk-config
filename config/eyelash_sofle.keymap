@@ -15,12 +15,13 @@
 #define lmain 0
 #define lbase 1
 #define lexp 2
-#define lexp1 3
+#define lengram 3
 #define lcolemac 4
 #define lgaming 5
 #define lsymbols 6
 #define lnav 7
-#define lsystem 8
+#define lmouse 8
+#define lsystem 0
 
 #define LN1 0 
 #define LN2 1 
@@ -211,6 +212,7 @@
         /* TAP_DANCE(numbers, &kp N1 &kp N2 &kp N3) */
         /* TAP_DANCE(media, &kp C_PLAY_PAUSE &kp C_NEXT &kp C_PREV) */
 
+        TAP_DANCE(shift_caps, &kp LSHIFT &caps_word)
 
     /* DEFINE_HRM(hml, home_row_mod_left, &kp, &kp, KEYS_R THUMBS, */
     /*   require-prior-idle-ms = <100>; */
@@ -250,7 +252,7 @@
             bindings = <
 &kp ESC     &mt EXCL N1  &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
 &kp TAB     &kp Q        &kp W         &kp E              &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U           &kp I             &kp O                    &kp P                     &kp BSLH
-&sk LSHFT   &kp A        &kp S         &kp D              &kp F             &kp G              &kp LEFT_ARROW      &kp H         &kp J           &kp K             &kp L                    &kp SEMI                  &kp ESC
+&shift_caps &kp A        &kp S         &kp D              &kp F             &kp G              &kp LEFT_ARROW      &kp H         &kp J           &kp K             &kp L                    &kp SEMI                  &kp ESC
 &kp LCTRL   &kp Z        &kp X         &kp C              &kp V             &kp B              &kp RIGHT_ARROW     &kp N         &kp M           &kp COMMA         &kp DOT                  &kp FSLH                  &kp ENTER
 &to lmain  &kp LCTRL    &kp LEFT_GUI  &kp LEFT_ALT       &mt LSHFT SPACE   &sl lsymbols       &kp ENTER           &mo lnav      &kp SPACE       &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
@@ -264,7 +266,7 @@
             bindings = <
 &kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
 &kp TAB     &kp Q          &kp W         &kp E              &kp R             &kp T              &kp DOWN_ARROW      &kp Y         &kp U           &kp I             &kp O                    &kp P                     &kp BSLH
-&sk LSHFT   &hml LSHIFT A  &hml LALT S   &hml LCTRL D       &hml LGUI F       &kp G              &kp LEFT_ARROW      &kp H         &hmr RGUI J     &hmr RCTRL K      &hmr RALT L              &hmr RSHIFT SEMI          &kp ESC
+&shift_caps &hml LSHIFT A  &hml LALT S   &hml LCTRL D       &hml LGUI F       &kp G              &kp LEFT_ARROW      &kp H         &hmr RGUI J     &hmr RCTRL K      &hmr RALT L              &hmr RSHIFT SEMI          &kp ESC
 &kp LCTRL   &kp Z          &kp X         &kp C              &kp V             &kp B              &kp RIGHT_ARROW     &kp N         &kp M           &kp COMMA         &kp DOT                  &kp FSLH                  &kp ENTER
 &to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB            &kp ENTER           &mo lsymbols  &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
@@ -274,17 +276,17 @@
         };
 
 
-        exp1 {
+        engram {
             bindings = <
-&kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
-&kp TAB     &kp V          &kp M         &kp L              &kp C             &kp P              &kp DOWN_ARROW      &kp X         &kp F           &kp O             &kp U                    &kp J                     &kp BSLH
-&sk LSHFT   &hml LSHIFT S  &hml LALT T   &hml LCTRL R       &hml LGUI D       &kp Y              &kp LEFT_ARROW      &kp DOT       &hmr RGUI N     &hmr RCTRL A      &hmr RALT E              &hmr RSHIFT I              &kp ESC
-&kp LCTRL   &kp Z          &kp K         &kp Q              &kp G             &kp W              &kp RIGHT_ARROW     &kp B         &kp H           &kp  SQT          &kp SEMI                 &kp COMMA                  &kp ENTER
-&to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB            &kp ENTER           &mo lsymbols  &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
+&kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5             &kp UP_ARROW        &mt CARET N6                &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
+&kp TAB     &kp B          &kp Y         &kp O              &kp U             &mt SQT LEFT_PARENTHESIS   &kp DOWN_ARROW      &mt DQT RIGHT_PARENTHESIS   &kp L           &kp D             &kp W                    &kp V                     &kp BSLH
+&shift_caps &hml LSHIFT C  &hml LALT I   &hml LCTRL E       &hml LGUI A       &mt COLON COMMA            &kp LEFT_ARROW      &mt COLON DOT               &hmr RGUI H     &hmr RCTRL T      &hmr RALT S              &hmr RSHIFT N              &kp Q
+&kp LCTRL   &kp G          &kp X         &kp J              &kp K             &mt MINUS UNDER            &kp RIGHT_ARROW     &mt EXCL QMARK              &kp R           &kp  M            &kp F                    &kp P                  &kp ENTER
+&to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB                    &kp ENTER           &mo lsymbols                &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "exp1";
+            display-name = "engram";
         };
 
 
@@ -292,7 +294,7 @@
             bindings = <
 &kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5     &kp UP_ARROW        &mt CARET N6  &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
 &kp TAB     &kp Q          &kp W         &kp F              &kp P             &kp B              &kp DOWN_ARROW      &kp J         &kp L           &kp U             &kp Y                   &kp SEMI                     &kp BSLH
-&sk LSHFT   &hml LSHIFT A  &hml LALT R   &hml LCTRL S       &hml LGUI T       &kp G              &kp LEFT_ARROW      &kp M       &hmr RGUI N     &hmr RCTRL E      &hmr RALT I              &hmr RSHIFT O              &kp SQT
+&shift_caps &hml LSHIFT A  &hml LALT R   &hml LCTRL S       &hml LGUI T       &kp G              &kp LEFT_ARROW      &kp M       &hmr RGUI N     &hmr RCTRL E      &hmr RALT I              &hmr RSHIFT O              &kp SQT
 &kp LCTRL   &kp Z          &kp X         &kp C              &kp D             &kp V              &kp RIGHT_ARROW     &kp K         &kp H           &kp  COMMA          &kp DOT                 &kp FSLH                  &kp ENTER
 &to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB            &kp ENTER           &mo lsymbols  &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
@@ -331,14 +333,28 @@
 
         nav {
             bindings = <
-&none       &none            &none           &none            &none            &none                   &mmv MOVE_UP         &none            &none            &none       &none      &none          &none
-&none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &kp LC(U)        &kp HOME         &kp UP      &kp END    &none          &none
-&none       &none            &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                   &mmv MOVE_LEFT       &kp LC(D)        &kp LEFT         &kp DOWN    &kp RIGHT  &kp PAGE_UP    &none
-&none       &none            &mkp LCLK       &mkp MCLK        &mkp RCLK        &none                   &mmv MOVE_LEFT       &kp B            &kp W            &none       &none      &kp PAGE_DOWN  &none
-&kp C_MUTE  &none            &none           &none            &kp BACKSPACE    &trans                  &mkp LCLK            &mo lsystem      &kp K_COPY       &kp K_PASTE &none      &none 
+&none       &none            &none           &none            &none            &none                   &mmv MOVE_UP         &none            &none            &none       &none        &none          &none
+&none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &kp LC(U)        &kp B            &kp UP      &mt E W      &kp PAGE_UP    &none
+&none       &kp LSHIFT       &kp LALT        &kp LCTRL        &kp LGUI         &none                   &mmv MOVE_LEFT       &kp LC(D)        &kp LEFT         &kp DOWN    &kp RIGHT    &kp PAGE_DOWN  &none
+&none       &none            &none           &none            &none            &none                   &mmv MOVE_LEFT       &kp HOME         &kp END          &mo lmouse  &none        &none          &none
+&kp C_MUTE  &none            &none           &none            &kp BACKSPACE    &kp TAB                 &mkp LCLK            &mo lsystem      &none            &kp K_COPY  &kp K_PASTE  &none 
             >;
 
             display-name = "nav";
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+
+        mouse {
+            bindings = <
+&none       &none            &none           &none            &none            &none                   &mmv MOVE_UP         &none            &none            &none       &none      &none          &none
+&none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &none            &none            &none       &none      &none          &none
+&none       &none            &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                   &mmv MOVE_LEFT       &kp RGUI         &kp RCTRL        &kp RALT    &kp RSHIT  &none          &none
+&none       &none            &mkp LCLK       &mkp MCLK        &mkp RCLK        &none                   &mmv MOVE_LEFT       &kp HOME         &kp END          &none       &none      &kp PAGE_DOWN  &none
+&kp C_MUTE  &none            &none           &none            &kp BACKSPACE    &trans                  &mkp LCLK            &none            &none            &none       &none      &none 
+            >;
+
+            display-name = "mouse";
             sensor-bindings = <&scroll_encoder>;
         };
 
@@ -348,7 +364,7 @@
 &soft_off       &out OUT_BLE     &bt BT_CLR      &bt BT_CLR_ALL   &none            &none                     &mmv MOVE_DOWN         &kp F7         &kp F8         &kp F9    &kp F10    &kp F11   &kp F12
 &bootloader     &out OUT_USB     &none           &none            &none            &none                     &mmv MOVE_LEFT         &none          &none          &none     &none      &none     &none
 &none           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI           &mmv MOVE_RIGHT        &to lcolemac   &none          &none     &none      &none     &none 
-&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &trans           &trans           &trans                    &mkp LCLK              &none          &none          &to lexp  &to lexp1  &tog lgaming  
+&none           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD &trans           &trans           &trans                    &mkp LCLK              &none          &none          &to lexp  &to lengram  &tog lgaming  
             >;
 
             display-name = "system";
