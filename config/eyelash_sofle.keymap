@@ -21,7 +21,7 @@
 #define lsymbols 6
 #define lnav 7
 #define lmouse 8
-#define lsystem 0
+#define lsystem 9
 
 #define LN1 0 
 #define LN2 1 
@@ -156,13 +156,13 @@
     acceleration-exponent = <1>;
     trigger-period-ms = <16>;
 };
-#define TAP_DANCE(name, bindings) \
-  td_##name: td_##name { \
-    compatible = "zmk,behavior-tap-dance"; \
-    #binding-cells = <0>; \
-    tapping-term-ms = <200>; \
-    bindings = <bindings>; \
-  };
+/* #define TAP_DANCE(name) \ */
+/*   name: name { \ */
+/*     compatible = "zmk,behavior-tap-dance"; \ */
+/*     #binding-cells = <0>; \ */
+/*     tapping-term-ms = <200>; \ */
+/*     bindings: __VA_ARGS__ ; \ */
+/*   }; */
 
 / {
 
@@ -212,7 +212,12 @@
         /* TAP_DANCE(numbers, &kp N1 &kp N2 &kp N3) */
         /* TAP_DANCE(media, &kp C_PLAY_PAUSE &kp C_NEXT &kp C_PREV) */
 
-        TAP_DANCE(shift_caps, &kp LSHIFT &caps_word)
+        shift_caps: shift_caps { 
+          compatible = "zmk,behavior-tap-dance"; 
+          #binding-cells = <0>; 
+          tapping-term-ms = <200>; 
+          bindings = <&kp LSHIFT>, <&caps_word>; 
+        };
 
     /* DEFINE_HRM(hml, home_row_mod_left, &kp, &kp, KEYS_R THUMBS, */
     /*   require-prior-idle-ms = <100>; */
@@ -279,8 +284,8 @@
         engram {
             bindings = <
 &kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5             &kp UP_ARROW        &mt CARET N6                &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
-&kp TAB     &kp B          &kp Y         &kp O              &kp U             &mt SQT LEFT_PARENTHESIS   &kp DOWN_ARROW      &mt DQT RIGHT_PARENTHESIS   &kp L           &kp D             &kp W                    &kp V                     &kp BSLH
-&shift_caps &hml LSHIFT C  &hml LALT I   &hml LCTRL E       &hml LGUI A       &mt COLON COMMA            &kp LEFT_ARROW      &mt COLON DOT               &hmr RGUI H     &hmr RCTRL T      &hmr RALT S              &hmr RSHIFT N              &kp Q
+&kp TAB     &kp B          &kp Y         &kp O              &kp U             &mt SQT LEFT_PARENTHESIS   &kp DOWN_ARROW      &mt DQT RIGHT_PARENTHESIS   &kp L           &kp D             &kp W                    &kp V                     &kp Q
+&shift_caps &hml LSHIFT C  &hml LALT I   &hml LCTRL E       &hml LGUI A       &mt COLON COMMA            &kp LEFT_ARROW      &mt COLON DOT               &hmr RGUI H     &hmr RCTRL T      &hmr RALT S              &hmr RSHIFT N             &kp Z
 &kp LCTRL   &kp G          &kp X         &kp J              &kp K             &mt MINUS UNDER            &kp RIGHT_ARROW     &mt EXCL QMARK              &kp R           &kp  M            &kp F                    &kp P                  &kp ENTER
 &to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB                    &kp ENTER           &mo lsymbols                &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
@@ -315,9 +320,6 @@
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
             display-name = "gaming";
         };
-
-
-
         
         symbols {
             bindings = <
@@ -344,14 +346,13 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-
         mouse {
             bindings = <
 &none       &none            &none           &none            &none            &none                   &mmv MOVE_UP         &none            &none            &none       &none      &none          &none
 &none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &none            &none            &none       &none      &none          &none
-&none       &none            &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                   &mmv MOVE_LEFT       &kp RGUI         &kp RCTRL        &kp RALT    &kp RSHIT  &none          &none
+&none       &none            &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &none                   &mmv MOVE_LEFT       &kp RGUI         &kp RCTRL        &kp RALT    &kp RSHIFT  &none          &none
 &none       &none            &mkp LCLK       &mkp MCLK        &mkp RCLK        &none                   &mmv MOVE_LEFT       &kp HOME         &kp END          &none       &none      &kp PAGE_DOWN  &none
-&kp C_MUTE  &none            &none           &none            &kp BACKSPACE    &trans                  &mkp LCLK            &none            &none            &none       &none      &none 
+&kp C_MUTE  &none            &none           &none            &kp BACKSPACE    &trans                  &mkp LCLK            &none            &none            &none       &none      &none
             >;
 
             display-name = "mouse";
