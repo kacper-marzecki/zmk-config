@@ -285,7 +285,7 @@
             bindings = <
 &kp ESC     &mt EXCL N1    &mt AT N2     &mt HASH NUMBER_3  &mt DOLLAR N4     &mt PERCENT N5             &kp UP_ARROW        &mt CARET N6                &mt AMPS N7     &mt ASTRK N8      &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &kp BACKSPACE
 &kp TAB     &kp B          &kp Y         &kp O              &kp U             &mt SQT LEFT_PARENTHESIS   &kp DOWN_ARROW      &mt DQT RIGHT_PARENTHESIS   &kp L           &kp D             &kp W                    &kp V                     &kp Q
-&shift_caps &hml LSHIFT C  &hml LALT I   &hml LCTRL E       &hml LGUI A       &mt SEMI COMMA            &kp LEFT_ARROW      &mt COLON DOT               &hmr RGUI H     &hmr RCTRL T      &hmr RALT S              &hmr RSHIFT N              &mt Q Z
+&shift_caps &hml LSHIFT C  &hml LALT I   &hml LCTRL E       &hml LGUI A       &mt SEMI COMMA            &kp LEFT_ARROW       &mt COLON DOT               &hmr RGUI H     &hmr RCTRL T      &hmr RALT S              &hmr RSHIFT N             &mt Q Z
 &kp LCTRL   &kp G          &kp X         &kp J              &kp K             &mt MINUS UNDER            &kp RIGHT_ARROW     &mt EXCL QMARK              &kp R           &kp  M            &kp F                    &kp P                  &kp ENTER
 &to lbase   &kp LCTRL      &kp LEFT_GUI  &kp ESC            &hml LSHFT SPACE  &kp TAB                    &kp ENTER           &mo lsymbols                &mo lnav        &kp RIGHT_ALT     &kp RIGHT_SHIFT          &kp DELETE
             >;
@@ -336,10 +336,10 @@
         nav {
             bindings = <
 &none       &none            &none           &none            &none            &none                   &mmv MOVE_UP         &none            &none            &none       &none        &none          &none
-&none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &kp LC(U)        &kp B            &kp UP      &mt E W      &kp PAGE_UP    &none
-&none       &kp LSHIFT       &kp LALT        &kp LCTRL        &kp LGUI         &none                   &mmv MOVE_LEFT       &kp LC(D)        &kp LEFT         &kp DOWN    &kp RIGHT    &kp PAGE_DOWN  &none
-&none       &none            &none           &none            &none            &none                   &mmv MOVE_LEFT       &kp HOME         &kp END          &mo lmouse  &none        &none          &none
-&kp C_MUTE  &none            &none           &none            &kp BACKSPACE    &kp TAB                 &mkp LCLK            &mo lsystem      &none            &kp K_COPY  &kp K_PASTE  &none 
+&none       &none            &none           &mmv MOVE_UP     &none            &none                   &mmv MOVE_DOWN       &none            &kp B            &kp UP      &mt E W      &kp V          &none
+&none       &kp LSHIFT       &kp LALT        &kp LCTRL        &kp LGUI         &none                   &mmv MOVE_LEFT       &none            &kp LEFT         &kp DOWN    &kp RIGHT    &kp PAGE_UP    &none
+&none       &none            &none           &none            &none            &none                   &mmv MOVE_LEFT       &kp HOME         &kp LC(U)        &kp LC(D)   &kp END      &kp PAGE_DOWN  &none
+&kp C_MUTE  &none            &none           &none            &kp BACKSPACE    &kp TAB                 &mkp LCLK            &mo lsystem      &none            &kp K_COPY  &kp K_PASTE  &mo lmouse 
             >;
 
             display-name = "nav";
